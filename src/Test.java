@@ -10,5 +10,6 @@ public static void main(String[] args) {
 	else {
 		JOptionPane.showMessageDialog(null, "Dat rite");
 	}
+	
 }
 }
