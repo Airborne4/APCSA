@@ -10,6 +10,7 @@ public class AddSubMultRunner
 {
 	public static void main( String args[] )
 	{
+		
 		System.out.println( AddSubMult.check( 10, 20) );		
 		System.out.println( AddSubMult.check( 20, 10) );	
 		System.out.println( AddSubMult.check( 20, 20) );
