@@ -159,20 +159,18 @@ public class Review {
 		String word = "";
 		String reviewString = textToString(filename);
 		for (int i = 0; i < reviewString.length(); i++) {
-			if(reviewString.charAt(i) != ' ') {
+			if (reviewString.charAt(i) != ' ' && getPunctuation(word) == "") {
 				word += reviewString.charAt(i);
-			}
-			else {
+			} else {
 				sentimentTotal += sentimentVal(word);
 				word = "";
 			}
 		}
-/*
-		String[] reviewWords = reviewString.split(" ", 0);
-		for (int i = 0; i < reviewWords.length; i++) {
-			sentimentTotal = sentimentTotal + sentimentVal(reviewWords[i]);
-		}
-*/
+		/*
+		 * String[] reviewWords = reviewString.split(" ", 0); for (int i = 0; i <
+		 * reviewWords.length; i++) { sentimentTotal = sentimentTotal +
+		 * sentimentVal(reviewWords[i]); }
+		 */
 		return sentimentTotal;
 	}
 
@@ -204,20 +202,37 @@ public class Review {
 
 	public static String fakeReview(String filename) {
 		String newReview = "";
-
+		String word = "";
 		String reviewString = textToString(filename);
-		String[] reviewWords = reviewString.split(" ", 0);
-		for (int i = 0; i < reviewWords.length; i++) {
-			if (reviewWords[i].charAt(0) == '*') {
-				// System.out.println(sentimentVal(reviewWords[i].substring(1)));
-				if (sentimentVal(reviewWords[i].substring(1)) < 0)
-					reviewWords[i] = randomPositiveAdj();
-				else
-					reviewWords[i] = reviewWords[i].substring(1);
+
+		for (int i = 0; i < reviewString.length(); i++) {
+			if (reviewString.charAt(i) != ' '  && getPunctuation(word) == "") {
+				word += reviewString.charAt(i);
+
+				if (word.charAt(0) == '*') {
+					// System.out.println(sentimentVal(reviewWords[i].substring(1)));
+					if (sentimentVal(word.substring(1)) < 0)
+						word = randomPositiveAdj();
+					else
+						word = word.substring(1);
+
+				}
+			} 
+			
+			else {
+				newReview += word + " ";
+				word = "";
 			}
-			newReview = newReview + reviewWords[i] + " ";
+			
 		}
 
+		/*
+		 * for (int i = 0; i < reviewWords.length; i++) { if (reviewWords[i].charAt(0)
+		 * == '*') { // System.out.println(sentimentVal(reviewWords[i].substring(1)));
+		 * if (sentimentVal(reviewWords[i].substring(1)) < 0) reviewWords[i] =
+		 * randomPositiveAdj(); else reviewWords[i] = reviewWords[i].substring(1); }
+		 * newReview = newReview + reviewWords[i] + " "; }
+		 */
 		return newReview;
 	}
 }

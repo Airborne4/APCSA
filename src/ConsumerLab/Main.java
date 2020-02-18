@@ -9,6 +9,8 @@ class Main {
 		// read in the positive adjectives in postiveAdjectives.txt
 		
 		 System.out.println(Review.totalSentiment(("src/ConsumerLab/simpleReview.txt")));
+		 System.out.println(Review.starRating("src/ConsumerLab/simpleReview.txt") + " stars");
+		 System.out.println(Review.fakeReview("src/ConsumerLab/simpleReview.txt"));
 		  // System.out.println(Review.starRating("src/ConsumerLab/simpleReview.txt"));
 			//System.out.println(Review.fakeReview("src/ConsumerLab/simpleReview.txt"));
 		
