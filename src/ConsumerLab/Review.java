@@ -159,12 +159,22 @@ public class Review {
 		String word = "";
 		String reviewString = textToString(filename);
 		for (int i = 0; i < reviewString.length(); i++) {
+			System.out.println(getPunctuation(word));
 			if (reviewString.charAt(i) != ' ' && getPunctuation(word) == "") {
 				word += reviewString.charAt(i);
 			} else {
 				sentimentTotal += sentimentVal(word);
 				word = "";
 			}
+			System.out.println(getPunctuation(word));
+			if (reviewString.charAt(i) != ' ' && getPunctuation(word) == "") {
+				word += reviewString.charAt(i);
+			} 
+		 else {
+			sentimentTotal += sentimentVal(word);
+			word = "";
+		}
+			
 		}
 		/*
 		 * String[] reviewWords = reviewString.split(" ", 0); for (int i = 0; i <
