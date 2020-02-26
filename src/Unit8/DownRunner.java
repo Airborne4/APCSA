@@ -32,7 +32,7 @@ public class DownRunner
 		int[] arr8 = {-111,1,2,3,9,11,20,1};
 		System.out.println(RayDown.go(arr8));
 		
-		int[] arr9 = {9,8,7,6,5,4,3,2,0,-2,6};
+		int[] arr9 = {9,8,7,6,5,4,3,2,0,-2,-989};
 		System.out.println(RayDown.go(arr9));
 		
 		int[] arr10 = {12,15,18,21,23,1000};
