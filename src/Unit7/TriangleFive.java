@@ -28,19 +28,26 @@ public class TriangleFive {
 	public String toString() {
 		String output = "";
 		int count = amount;
+		char myLetter = letter;
+		for (int j = amount; j > 0; j--) {
+			count = amount;
+			myLetter = letter;
 
-		for (int i = 0; i < amount; i++) {
-			for (int x = 0; x < count; x++) {
-				output = output + letter;
+			for (int i = 0; i < j; i++) {
+				for (int x = 0; x < count; x++) {
+					output = output + myLetter;
+
+				}
+				output = output + " ";
+				myLetter++;
+				if (myLetter == '[') {
+					myLetter = 'A';
+				}
+				count--;
+
 			}
-			output = output + " ";
-			letter++;
-			if (letter == '[') {
-				letter = 'A';
-			}
-			count--;
+			output += "\n";
 		}
-
 		return output;
 	}
 }
