@@ -53,12 +53,13 @@ public class Deck {
 	}
 
 	public Card dealCard() {
-
+		Card dealCard = new Card();
 		System.out.println(!isEmpty());
 		if (!isEmpty()) {
 			size--;
 			top--;
-			return cards.get(top + 1);
+			dealCard = cards.get(top + 1); 
+			return dealCard;
 
 		} else {
 			return new Card();
