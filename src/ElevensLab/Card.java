@@ -31,8 +31,8 @@ public class Card {
 
 	// modifiers
 	// set methods
-	
-	//auto-generated (super cool)
+
+	// auto-generated (super cool)
 	public void setFace(int face) {
 		this.face = face;
 	}
@@ -86,7 +86,7 @@ public class Card {
 	// toString
 	public String toString() {
 		if (pointValue == 0) {
-			return "" + FACES[face] + " of " + getSuit();
+			return "" + FACES[face] + " of " + getSuit() ;
 		} else {
 			return rank + " of " + suit + " (Point Value of " + pointValue + ")";
 		}

@@ -1,18 +1,13 @@
-//(c) A+ Computer Science
-//www.apluscompsci.com
-//Name -
-
 package ElevensLab;
 
 import java.util.List;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collections;
 
-//make a Deck class
 public class Deck {
 	public static final int NUMCARDS = 52;
 	public static String[] SUITS = "CLUBS HEARTS DIAMONDS SPADES".split(" ");
-
 	private List<Card> cards;
 	private int top;
 	private int size = 52;
@@ -26,6 +21,7 @@ public class Deck {
 		top = 51;
 		for (String suit : SUITS) {
 			for (int face = 1; face < 14; face++) {
+				// cards.add(new BlackJackCard(suit,face));
 				cards.add(new Card(suit, face));
 			}
 		}
@@ -53,13 +49,12 @@ public class Deck {
 	}
 
 	public Card dealCard() {
-		Card dealCard = new Card();
-		System.out.println(!isEmpty());
+
+		// System.out.println(!isEmpty());
 		if (!isEmpty()) {
 			size--;
 			top--;
-			dealCard = cards.get(top + 1); 
-			return dealCard;
+			return cards.get(top + 1);
 
 		} else {
 			return new Card();
@@ -67,15 +62,47 @@ public class Deck {
 
 	}
 
-	public void shuffle() {
-		Collections.shuffle(cards);
-		top = 51;
-		size = 52;
+	public Card deal() {
+
+		// System.out.println(!isEmpty());
+		if (!isEmpty()) {
+			size--;
+			top--;
+			Card returnCard = cards.get(top + 1);
+			cards.remove(returnCard);
+			return returnCard;
+
+		} else {
+			return new Card();
+		}
+
+	}
+
+	public void shuffle(int[] shuffledArray) {
+		/*
+		 * Collections.shuffle(cards); top=51; size=52;
+		 */
+		ArrayList<Card> shuffledDeck = new ArrayList<Card>();
+		for (int i = 0; i < cards.size(); i++) {
+
+			shuffledDeck.add(cards.get(shuffledArray[i]));
+
+		}
+		cards = shuffledDeck;
+
 	}
 
 	public void reset() {
 		size = 52;
 		top = 51;
+	}
+
+	public String toString() {
+		String returnString = "";
+		for (Card card : cards) {
+			returnString += " " + card.toString();
+		}
+		return returnString;
 	}
 	// loop through all suits
 	// loop through all faces 1 to 13
