@@ -3,76 +3,82 @@
 //Name -
 package Unit11;
 
-import static java.lang.System.*; 
+class Rational implements Comparable<Rational> {
+	int numerator;
+	int denominator;
 
-class Rational implements Comparable<Rational>
-{
-	//add two instance variables
+	public Rational() {
+		numerator = 1;
+		denominator = 1;
+	}
 
-	//write two constructors
+	public Rational(int n, int d) {
+		setRational(n, d);
+	}
 
+	public void setRational(int n, int d) {
+		numerator = n;
+		denominator = d;
+	}
 
-	//write a setRational method
-	
-
-	//write  a set method for numerator and denominator
-
-	
-	public void add(Rational  other)
-	{
-		//num1/den1 + num2/den2 
-		//new numerator = (num1 * den2 + num2 * den1)
-		//new denominator = (den1 * den2)
-		
-		
-
+	public void add(Rational other) {
+		numerator = numerator * other.denominator + other.numerator * denominator;
+		denominator = denominator * other.denominator;
 
 		reduce();
 	}
 
-	private void reduce()
-	{
+	private void reduce() {
 
-
+		int gcd = gcd(numerator, denominator);
+		numerator = numerator / gcd;
+		denominator = denominator / gcd;
 
 	}
 
-	private int gcd(int numOne, int numTwo)
-	{
-
-
-		return 1;
+	private int gcd(int numOne, int numTwo) {
+		int gcd = 1;
+		for (int i = numOne + numTwo; i > 0; i--) {
+			if ((double) numOne / i % 1 == 0 && (double) numTwo / i % 1 == 0) {
+				gcd = i;
+				break;
+			}
+		}
+		return gcd;
 	}
 
-	public Object clone ()
-	{
-		return "";
+	public Object clone() {
+		Rational clone = new Rational(numerator, denominator);
+		return clone;
 	}
 
-
-	//ACCESSORS
-
-	//write get methods for numerator and denominator
-	
-	
-	public boolean equals( Object obj)
-	{
-
-
-		return false;
+	public int getNumerator() {
+		return numerator;
 	}
 
-	public int compareTo(Rational other)
-	{
+	public int getDenominator() {
+		return denominator;
+	}
 
+	public boolean equals(Object obj) {
+		if((double)((Rational) obj).getNumerator() / ((Rational) obj).getDenominator() == (double)numerator / denominator) {
+			return true;
+		}
+		else{
+			return false;
+		}
+	}
+
+	public int compareTo(Rational other) {
+		if (other.numerator == numerator && other.denominator == denominator) {
+			return 1;
+		}
 
 		return -1;
 	}
 
+	public String toString() {
+		return (numerator + "/" + denominator);
+	}
 
-
-	
-	//write  toString() method
-	
-	
 }

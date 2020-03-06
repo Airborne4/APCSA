@@ -5,34 +5,46 @@ package Unit11;
 
 import java.util.Arrays;
 
-public class Doggies
-{
+public class Doggies {
+
 	private Dog[] pups;
 
-	public Doggies(int size)
-	{
-		//point pups at a new arry of Dog
-		
-	}
-	
-	public void set(int spot, int age, String name)
-	{
-		//put a new Dog in the array at spot 
-		//make sure spot is in bounds		
+	public Doggies(int size) {
+		pups = new Dog[size];
+
 	}
 
-	public String getNameOfOldest()
-	{
-		return null;
+	public void set(int spot, int age, String name) {
+		if (spot < pups.length) {
+			pups[spot] = new Dog(age, name);
+		}
 	}
 
-	public String getNameOfYoungest()
-	{
-		return null;
+	public String getNameOfOldest() {
+		String oldestName = "";
+		int oldestAge = 0;
+		for (Dog dog : pups) {
+			if (dog.getAge() > oldestAge) {
+				oldestName = dog.getName();
+				oldestAge = dog.getAge();
+			}
+		}
+		return oldestName;
 	}
 
-	public String toString()
-	{
-		return ""+Arrays.toString(pups);
+	public String getNameOfYoungest() {
+		String youngestName = "";
+		int youngestAge = 1000;
+		for (Dog dog : pups) {
+			if (dog.getAge() < youngestAge) {
+				youngestName = dog.getName();
+				youngestAge = dog.getAge();
+			}
+		}
+		return youngestName;
+	}
+
+	public String toString() {
+		return "" + Arrays.toString(pups);
 	}
 }

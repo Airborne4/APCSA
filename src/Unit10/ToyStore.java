@@ -9,34 +9,28 @@ import java.util.ArrayList;
 import java.util.Collections;
 import static java.lang.System.*;
 
-public class ToyStore
-{
+public class ToyStore {
 	private ArrayList<Toy> toyList;
-
-	public ToyStore()
-	{
+	String[] temp;
+	public ToyStore() {
 	}
 
-	public void loadToys( String toys )
-	{
+	public void loadToys(String toys) {
+		temp = toys.split(" ");
 	}
-  
-  	public Toy getThatToy( String nm )
-  	{
-  		return null;
-  	}
-  
-  	public String getMostFrequentToy()
-  	{
-  		return "";
-  	}  
-  
-  	public void sortToysByCount()
-  	{
-  	}  
-  	  
-	public String toString()
-	{
-	   return "";
+
+	public Toy getThatToy(String nm) {
+		return null;
+	}
+
+	public String getMostFrequentToy() {
+		return "";
+	}
+
+	public void sortToysByCount() {
+	}
+
+	public String toString() {
+		return "";
 	}
 }

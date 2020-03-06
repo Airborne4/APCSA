@@ -29,3 +29,22 @@ public class DoggiesRunner
 		System.out.println("NAME OF YOUNGEST :: "+pack.getNameOfYoungest());		
 	}		
 }
+
+/*
+Output with Test Cases:
+
+How many Dogs are in the pack? :: 5
+Enter the age :: 20
+Enter the name :: Sammy
+Enter the age :: 10
+Enter the name :: Benny
+Enter the age :: 5
+Enter the name :: Wilee
+Enter the age :: 30
+Enter the name :: Kelley
+Enter the age :: 2
+Enter the name :: Baby
+pack :: [20 Sammy, 10 Benny, 5 Wilee, 30 Kelley, 2 Baby]
+NAME OF OLDEST :: Kelley
+NAME OF YOUNGEST :: Baby
+*/
