@@ -1,6 +1,8 @@
 package Q3Lab;
 
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Scanner;
 
 public class Shelf {
 	private ArrayList<Book> books;
@@ -66,7 +68,34 @@ public class Shelf {
 		return count / books.size();
 	}
 
-	/*
+
+	
+	
+	public int binarySearch(double target)
+	{
+		
+		int left = 0;
+	    int right = books.size() - 1;
+	    
+	      while (left <= right)
+	      {
+	         int middle = (left + right) / 2;
+	         if (target < books.get(middle).getPageCount())
+	         {
+	            right = middle - 1;
+	         }
+	         else if (target > books.get(middle).getPageCount())
+	         {
+	            left = middle + 1;
+	         }
+	         else {
+	            return middle;
+	         }
+	       }
+		
+	    return -1;
+	}
+	
 	public int[] selectionSort(int[] array) {
 		for (int i = 0; i < array.length - 1; i++) {
 			int min = i;
@@ -82,29 +111,31 @@ public class Shelf {
 		}
 		return array;
 	}
-
+/*
 	// Binary Search!
-	public double highestPageCount() {
+	public int search(int input) {
+		int array[];
 		
-		selectionSort();
-		
-		
-		for (int spot = 0; spot < nums.length; spot++) {
-			System.out.println(nums[spot]);
-			
+		for (int i = 0; i < books.size(); i++) {
+			array[i] = books.get(i).getPageCount();
 		}
-		System.out.println(Arrays.binarySearch(nums, 34));
-		System.out.println(Arrays.binarySearch(nums, 9));
+		
+		selectionSort(array);
 
-		return 1;
+		for (int spot = 0; spot < array.length; spot++) {
+			System.out.println(array[spot]);
+		}
+		return Arrays.binarySearch(array, input);
 	}
-*/
+	*/
+	Scanner keyboard = new Scanner(System.in);
+
 	public String toString() {
 		return "-------------------------------------------------------" + "\n" + "Shelf Size (inches): " + size + "\n"
 				+ "Number of Pamphlets on the shelf: " + getBookCount() + "\n"
 				+ "Average Pamphlet Size (inches) on the shelf: " + averageBookSize() + "\n"
 				+ "Average Page Count on Shelf: " + averagePageCount() + "\n" + "Average Lines per Page on the shelf: "
-				+ averageLinesPerPage();
+				+ averageLinesPerPage() + "\n";
 	}
 
 	public Book getBook(int index) {

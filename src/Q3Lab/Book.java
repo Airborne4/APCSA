@@ -45,6 +45,13 @@ public class Book {
 	}
 	
 
+	
+	/*public int highestPageNum() {
+
+		return num;
+		
+	}*/
+
 	public String toString() {
 		return "Pamphlet (inches): " + size + "\n" + "Number of pages in the Pamphlet: " + getPageCount()
 				+ "\n" + "Average lines per page in the Pamphlet: " + averageLinesPerPage();
